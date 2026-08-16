@@ -6,7 +6,7 @@
 /*   By: ebroeker <ebroeker@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 17:08:16 by ebroeker          #+#    #+#             */
-/*   Updated: 2026/08/10 17:51:09 by ebroeker         ###   ########.fr       */
+/*   Updated: 2026/08/16 20:49:24 by ebroeker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ typedef struct Stack
 } 	stack;
 
 
-void	operations(stack);
+void	swap_sa(stack *a);
+void	swap_sb(stack *b);
+void	swap_ss(stack *a, stack *b);
+void	rotate_ra(stack *a);
+void    rotate_rb(stack *b);
+void    rotate_rr(stack *a, stack *b);
+void    push(stack *s1, stack *s2);
+void    pa(stack *a, stack *b);
+void    pb(stack *a, stack *b);
+void    rr(stack *s);
+void    rra(stack *a);
+void    rrb(stack *b);
+void    rrr(stack *a, stack *b);
+
+
 
 #endif
