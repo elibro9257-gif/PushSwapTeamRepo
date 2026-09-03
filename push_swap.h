@@ -30,6 +30,13 @@ typedef struct Stack
 	int	size;
 } 	stack;
 
+typedef struct s_op
+{
+        char        *cmd;//z.B. "ra","rb", "sa", "rra"
+        struct s_op *next;
+        struct s_op *prev;
+}               t_op;
+
 
 void	swap_sa(stack *a);
 void	swap_sb(stack *b);
@@ -44,6 +51,14 @@ void    rr(stack *s);
 void    rra(stack *a);
 void    rrb(stack *b);
 void    rrr(stack *a, stack *b);
+
+int     add_op(t_op **data, char *cmd);
+void    optimize_operations(t_op **data);
+void    print_and_free_ops(t_op *data);
+
+//Sortieralgorithmen
+void    simple_sort(stack *stack_a, stack *stack_b, t_op **op_list);
+void    sort_three(stack *a, t_op **op_list);
 
 
 
