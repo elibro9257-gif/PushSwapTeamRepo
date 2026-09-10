@@ -1,4 +1,4 @@
-#include "values.h"
+ #include "values.h"
 
 void	error()
 {
@@ -47,4 +47,4 @@ int	main(int argc, char **argv)
 	print_stack(&a);
 	print_stack(&b);	
 	return (0);
-}
+} 

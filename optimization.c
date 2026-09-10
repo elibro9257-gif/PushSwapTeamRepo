@@ -103,15 +103,21 @@ void optimize_operations(t_op **head)
         curr = curr->next;
     }
 }
-void print_and_free_ops(t_op *head)
+// Ersetze diese Funktion in deiner Optimierungs-Datei
+void	print_and_free_ops(t_op *head)
 {
-    t_op *tmp;
+	t_op	*tmp;
+	int		len;
 
-    while (head) 
-    {
-        tmp = head->next;
-        printf("%s\n", head->cmd); // Befehl ausgeben
-        free(head);                // Struktur-Knoten befreien
-        head = tmp;
-    }
+	while (head) 
+	{
+		tmp = head->next;
+		len = 0;
+		while (head->cmd[len])
+			len++;
+		write(1, head->cmd, len);
+		write(1, "\n", 1);
+		free(head);
+		head = tmp;
+	}
 }

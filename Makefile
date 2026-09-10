@@ -1,39 +1,74 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile2                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ebroeker <ebroeker@student.42berlin.d      +#+  +:+       +#+         #
+#    By: ebroeker <ebroeker@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/08/16 19:07:21 by ebroeker          #+#    #+#              #
-#    Updated: 2026/08/16 19:11:03 by ebroeker         ###   ########.fr        #
+#    Created: 2026/09/10 10:30:00 by ebroeker          #+#    #+#              #
+#    Updated: 2026/09/10 10:36:36 by ebroeker         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC =		cc
-CFLAGS = 	-Wall -Wextra -Werror
-AR =		ar
-ARFLAGS =	rcs
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ebroeker <ebroeker@student.42berlin.de>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/09/10 10:45:00 by ebroeker          #+#    #+#              #
+#    Updated: 2026/09/10 10:45:00 by ebroeker         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME =		push_swap.a
+NAME        = push_swap
 
-SRC =		swap.c \
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror
 
-OBJ =		$(SRC:.c=.o)
+# Alle deine exakten Dateinamen aufeinander abgestimmt:
+SRCS        = main.c \
+              check_integer.c \
+              complex_sol.c \
+              input_parsing.c \
+              medium_sort.c \
+              number_parser.c \
+              operations_simple.c \
+              optimization.c \
+              push_operation.c \
+              rank_stack.c \
+              rotate.c \
+              rotate_reverse_operation.c \
+              simple_sort.c \
+              stratergy_parser.c \
+              swap.c
 
-$(NAME): $(OBJ)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+# Automatische Erstellung der .o Dateinamen
+OBJS        = $(SRCS:.c=.o)
+
+# Visuelles Feedback fürs Terminal
+GREEN       = \033[0;32m
+YELLOW      = \033[0;33m
+RESET       = \033[0m
 
 all: $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJS)
+	@echo "$(YELLOW)Kompiliere $(NAME)...$(RESET)"
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)$(NAME) erfolgreich erstellt!$(RESET)"
+
+%.o: %.c push_swap.h
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJS)
+	@echo "$(YELLOW)Object-Dateien gelöscht.$(RESET)"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(YELLOW)$(NAME) gelöscht.$(RESET)"
 
 re: fclean all
 
