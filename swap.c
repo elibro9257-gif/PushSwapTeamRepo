@@ -12,38 +12,36 @@
 
 #include "push_swap.h"
 
-static void    swap(stack *s)
+static void	swap(stack *s)
 {
-        t_list  *top;
+	t_list	*top;
 	t_list	*second;
-	int	temp;
+	int		temp;
 
 	if (!s || !s->data || !s->data->next)
-		return; //checking if stack exists and has 2Elements
+		return ;
 	top = s->data;
 	second = top->next;
-
 	temp = top->content;
 	top->content = second->content;
 	second->content = temp;
-
 }
 
-void    swap_sa(stack *a)
+void	swap_sa(stack *a)
 {
-        swap(a);
+	swap(a);
 	write(1, "sa\n", 3);
 }
 
-void    swap_sb(stack *b)
+void	swap_sb(stack *b)
 {
-        swap(b);
-        write(1, "sb\n", 3);
+	swap(b);
+	write(1, "sb\n", 3);
 }
 
-void    swap_ss(stack *a, stack *b)
+void	swap_ss(stack *a, stack *b)
 {
-        swap(a);
+	swap(a);
 	swap(b);
-        write(1, "ss\n", 3);
+	write(1, "ss\n", 3);
 }

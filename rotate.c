@@ -17,16 +17,13 @@ static void	rotate(stack *s)
 	t_list	*top;
 	t_list	*last;
 
-	if (!s || !s->data || !s->data->next) //data ist wie head
+	if (!s || !s->data || !s->data->next)
 		return ;
 	top = s->data;
 	last = s->data;
-
 	while (last->next != NULL)
 		last = last->next;
-
 	s->data = top->next;
-
 	last->next = top;
 	top->next = NULL;
 }
@@ -37,15 +34,15 @@ void	rotate_ra(stack *a)
 	write(1, "ra\n", 3);
 }
 
-void    rotate_rb(stack *b)
+void	rotate_rb(stack *b)
 {
-        rotate(b);
-        write(1, "rb\n", 3);
+	rotate(b);
+	write(1, "rb\n", 3);
 }
 
-void    rotate_rr(stack *a, stack *b)
+void	rotate_rr(stack *a, stack *b)
 {
-        rotate(a);
+	rotate(a);
 	rotate(b);
-        write(1, "rr\n", 3);
+	write(1, "rr\n", 3);
 }

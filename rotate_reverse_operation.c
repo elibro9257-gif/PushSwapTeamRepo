@@ -6,9 +6,9 @@ void	rr(stack *s)
 	t_list	*prev;
 
 	temp = s->data;
-	if(!s->data || s->size < 2)
-		return;
-	while(temp->next)
+	if (!s->data || s->size < 2)
+		return ;
+	while (temp->next)
 	{
 		prev = temp;
 		temp = temp->next;
@@ -21,18 +21,18 @@ void	rr(stack *s)
 void	rra(stack *a)
 {
 	rr(a);
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(stack *b)
 {
 	rr(b);
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(stack *a, stack *b)
 {
 	rr(a);
 	rr(b);
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }
