@@ -10,18 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ebroeker <ebroeker@student.42berlin.de>    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/09/10 10:45:00 by ebroeker          #+#    #+#              #
-#    Updated: 2026/09/10 10:45:00 by ebroeker         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME        = push_swap
 
 CC          = cc
@@ -42,7 +30,8 @@ SRCS        = main.c \
               rotate_reverse_operation.c \
               simple_sort.c \
               stratergy_parser.c \
-              swap.c
+              swap.c \
+              adaptive.c 
 
 # Automatische Erstellung der .o Dateinamen
 OBJS        = $(SRCS:.c=.o)

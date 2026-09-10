@@ -4,7 +4,7 @@ int	check_duplicate(int value, stack *a)
 {
 	t_list	*current;
 
-	current = a->data
+	current = a->data;
 	while (current)
 	{
 		if (current->content == value)
@@ -27,11 +27,11 @@ void	add_to_stack(int value, stack *a)
 	new->next = NULL;
 	if (!a->data)
 	{
-		a->data->new;
+		a->data = new;
 		a->size++;
 		return ;
 	}
-	current = a->head;
+	current = a->data;
 	while (current->next)
 		current = current->next;
 	current->next = new;

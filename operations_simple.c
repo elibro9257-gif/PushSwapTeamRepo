@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/*
 void	push(stack *s1, stack *s2)
 {
 	t_list	*tmp;
@@ -42,7 +42,7 @@ void	rra(stack *a)
 	current->next = a->data;
 	a->data = current;
 }
-
+*/
 void	sort_three(stack *a, t_op **op_list)
 {
 	int	first;

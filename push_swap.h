@@ -17,6 +17,7 @@
 #include <stddef.h> // fuer size_t
 #include <stdlib.h> // fuer malloc
 #include <stdio.h>  // MUSS NOCH RAUSGENOMMEN WERDEN
+#include <limits.h> // fuer INT_MAX und INT_MIN FEHLER
 
 typedef enum e_strategy
 {
@@ -73,10 +74,21 @@ int     add_op(t_op **data, char *cmd);
 void    optimize_operations(t_op **data);
 void    print_and_free_ops(t_op *data);
 
+int	strategy_parsing(char **argv, t_config *config, int index);
 void	init_data(stack *a, stack *b, t_config *config);
-int		parse_input(char **argv, stack *a, t_config *config);
-int		validate_input(int index, int argc);
-
+int	parse_input(char **argv, stack *a, t_config *config);
+int	validate_input(int index, int argc);
+int	check_duplicate(int value, stack *a);
+void	add_to_stack(int value, stack *a);
+int	number_parsing(char **argv, stack *a, int index);
+void	complex(stack *a, stack *b);
+int	check_integer(char *str, int *pos, int *error_flag);
+int	set_error(int *error_flag);
+int	get_sign(char *str, int *pos);
+void	error();
+int	is_option(char *arg);
+int	ft_strcmp(const char *s1, const char *s2);
+void	adaptive(stack *a, stack *b);
 
 //Sortieralgorithmen
 void    simple_sort(stack *stack_a, stack *stack_b, t_op **op_list);

@@ -17,9 +17,9 @@ int	is_option(char *arg)
 
 void	init_data(stack *a, stack *b, t_config *config)
 {
-	a->head = NULL;
+	a->data = NULL;
 	a->size = 0;
-	b->head = NULL;
+	b->data = NULL;
 	b->size = 0;
 	config->strategy = ADAPTIVE;
 	config->bench = 0;

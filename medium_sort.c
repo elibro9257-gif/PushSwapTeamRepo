@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void	rank_stack(stack *stack_a)
 {
 	t_list	*current;
@@ -33,7 +33,7 @@ void	rank_stack(stack *stack_a)
 		current = current->next;
 	}
 }
-
+*/
 // Hilfsfunktion zur Berechnung der Quadratwurzel (für die Chunk-Größe)
 static int	ft_int_sqrt(int number)
 {

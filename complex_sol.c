@@ -52,21 +52,18 @@ static void	radix_sort(stack *a, stack *b)
 		i = 0;
 		while (i < count)
 		{
-			if (((a->head->rank >> bit) & 1) == 0)
+			if (((a->data->rank >> bit) & 1) == 0) // head to data changed
 			{
-				printf("pb\n");
 				pb(a, b);
 			}
 			else
 			{
-				printf("ra\n");
-				ra(a);
+				rotate_ra(a);
 			}
 			i++;
 		}
 		while (b->size > 0)
 		{
-			printf("pa\n");
 			pa(a, b);
 		}
 		bit++;
@@ -75,6 +72,6 @@ static void	radix_sort(stack *a, stack *b)
 
 void	complex(stack *a, stack *b)
 {
-	assign_ranks(a->head);
+	assign_ranks(a->data);
 	radix_sort(a, b);
 }
