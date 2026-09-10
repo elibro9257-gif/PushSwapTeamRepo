@@ -1,4 +1,4 @@
-#include "values.h"
+#include "push_swap.h"
 
 int	check_integer(char *str, int *pos, int *error_flag)
 {

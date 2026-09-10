@@ -1,10 +1,10 @@
-#include "values.h"
+#include "push_swap.h"
 
 int	check_duplicate(int value, stack *a)
 {
 	t_list	*current;
 
-	current = a->head;
+	current = a->data
 	while (current)
 	{
 		if (current->content == value)
@@ -25,9 +25,9 @@ void	add_to_stack(int value, stack *a)
 	new->content = value;
 	new->rank = 0;
 	new->next = NULL;
-	if (!a->head)
+	if (!a->data)
 	{
-		a->head = new;
+		a->data->new;
 		a->size++;
 		return ;
 	}

@@ -16,6 +16,23 @@
 #include <unistd.h>
 #include <stddef.h> // fuer size_t
 #include <stdlib.h> // fuer malloc
+#include <stdio.h>  // MUSS NOCH RAUSGENOMMEN WERDEN
+
+typedef enum e_strategy
+{
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}	t_strategy;
+
+typedef struct s_config
+{
+	t_strategy	strategy;
+	int			bench;
+}	t_config;
+
+// das war was oben hinzugefuegt werden musste
 
 typedef struct s_list
 {
@@ -56,10 +73,15 @@ int     add_op(t_op **data, char *cmd);
 void    optimize_operations(t_op **data);
 void    print_and_free_ops(t_op *data);
 
+void	init_data(stack *a, stack *b, t_config *config);
+int		parse_input(char **argv, stack *a, t_config *config);
+int		validate_input(int index, int argc);
+
+
 //Sortieralgorithmen
 void    simple_sort(stack *stack_a, stack *stack_b, t_op **op_list);
 void    sort_three(stack *a, t_op **op_list);
-
-
+void	medium_sort(stack *stack_a, stack *stack_b, t_op **op_list);
+void	rank_stack(stack *stack_a);
 
 #endif

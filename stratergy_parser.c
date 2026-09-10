@@ -1,4 +1,4 @@
-#include "values.h"
+#include "push_swap.h"
 
 static int	set_strategy(char *arg, t_config *config)
 {

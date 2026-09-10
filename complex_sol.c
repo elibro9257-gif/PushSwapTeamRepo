@@ -1,4 +1,4 @@
-#include "values.h"
+#include "push_swap.h"
 
 static void	assign_ranks(t_list *a)
 {
