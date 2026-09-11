@@ -33,7 +33,7 @@ static int	get_max_index_pos(t_list *stack, int max_index)
 /*
 ** Bringt den groessten Rang in B nach oben
 */
-static void	bring_max_to_top(stack *stack_b, t_op **op_list, t_config *config)
+static void	bring_max_to_top(t_stack *stack_b, t_op **op_list, t_config *config)
 {
 	int	max_idx;
 	int	pos;
@@ -63,7 +63,7 @@ static void	bring_max_to_top(stack *stack_b, t_op **op_list, t_config *config)
 /*
 ** Hilfsfunktion fuer push_chunks_to_b (Maximal 4 Argumente erlaubt)
 */
-static int	check_and_push(stack *a, stack *b, t_op **op_list, int *i, t_config *config)
+static int	check_and_push(t_stack *a, t_stack *b, t_op **op_list, int *i, t_config *config)
 {
 	int	chunk_size;
 	int	sqrt;
@@ -94,7 +94,7 @@ static int	check_and_push(stack *a, stack *b, t_op **op_list, int *i, t_config *
 /*
 ** Pusht die Elemente in Chunks strukturiert nach B
 */
-static void	push_chunks_to_b(stack *stack_a, stack *stack_b, t_op **op_list, t_config *config)
+static void	push_chunks_to_b(t_stack *stack_a, t_stack *stack_b, t_op **op_list, t_config *config)
 {
 	int	i;
 
@@ -112,7 +112,7 @@ static void	push_chunks_to_b(stack *stack_a, stack *stack_b, t_op **op_list, t_c
 /*
 ** Der Hauptalgorithmus fuer mittlere und grosse Mengen
 */
-void	medium_sort(stack *stack_a, stack *stack_b, t_op **op_list, t_config *config)
+void	medium_sort(t_stack *stack_a, t_stack *stack_b, t_op **op_list, t_config *config)
 {
 	rank_stack(stack_a);
 	push_chunks_to_b(stack_a, stack_b, op_list, config);

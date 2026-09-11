@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate_reverse_operation.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sturuvek <sturuvek@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/11 12:22:13 by sturuvek          #+#    #+#             */
+/*   Updated: 2026/09/11 12:22:14 by sturuvek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	rr(stack *s)
+void	rr(t_stack *s)
 {
 	t_list	*temp;
 	t_list	*prev;
@@ -18,7 +30,7 @@ void	rr(stack *s)
 	s->data = temp;
 }
 
-void	rra(stack *a, t_config *config)
+void	rra(t_stack *a, t_config *config)
 {
 	rr(a);
 	if (config->bench)
@@ -27,7 +39,7 @@ void	rra(stack *a, t_config *config)
 		write(1, "rra\n", 4);
 }
 
-void	rrb(stack *b, t_config *config)
+void	rrb(t_stack *b, t_config *config)
 {
 	rr(b);
 	if (config->bench)
@@ -36,7 +48,7 @@ void	rrb(stack *b, t_config *config)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(stack *a, stack *b, t_config *config)
+void	rrr(t_stack *a, t_stack *b, t_config *config)
 {
 	rr(a);
 	rr(b);

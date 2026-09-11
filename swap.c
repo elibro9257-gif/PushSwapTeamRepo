@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	swap(stack *s)
+static void	swap(t_stack *s)
 {
 	t_list	*top;
 	t_list	*second;
@@ -27,7 +27,7 @@ static void	swap(stack *s)
 	second->content = temp;
 }
 
-void	swap_sa(stack *a, t_config *config)
+void	swap_sa(t_stack *a, t_config *config)
 {
 	swap(a);
 	if (config->bench)
@@ -36,7 +36,7 @@ void	swap_sa(stack *a, t_config *config)
 		write(1, "sa\n", 3);
 }
 
-void	swap_sb(stack *b, t_config *config)
+void	swap_sb(t_stack *b, t_config *config)
 {
 	swap(b);
 	if (config->bench)
@@ -45,7 +45,7 @@ void	swap_sb(stack *b, t_config *config)
 		write(1, "sb\n", 3);
 }
 
-void	swap_ss(stack *a, stack *b, t_config *config)
+void	swap_ss(t_stack *a, t_stack *b, t_config *config)
 {
 	swap(a);
 	swap(b);

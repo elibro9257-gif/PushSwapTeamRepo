@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex_sol.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sturuvek <sturuvek@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/11 12:22:29 by sturuvek          #+#    #+#             */
+/*   Updated: 2026/09/11 12:22:30 by sturuvek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	assign_ranks(t_list *a)
@@ -37,7 +49,7 @@ static int	get_max_bits(int size)
 	return (bits);
 }
 
-static void	radix_sort(stack *a, stack *b, t_config *config)
+static void	radix_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	int	bit;
 	int	i;
@@ -53,24 +65,18 @@ static void	radix_sort(stack *a, stack *b, t_config *config)
 		while (i < count)
 		{
 			if (((a->data->rank >> bit) & 1) == 0)
-			{
 				pb(a, b, config);
-			}
 			else
-			{
 				rotate_ra(a, config);
-			}
 			i++;
 		}
 		while (b->size > 0)
-		{
 			pa(a, b, config);
-		}
 		bit++;
 	}
 }
 
-void	complex(stack *a, stack *b, t_config *config)
+void	complex(t_stack *a, t_stack *b, t_config *config)
 {
 	assign_ranks(a->data);
 	radix_sort(a, b, config);

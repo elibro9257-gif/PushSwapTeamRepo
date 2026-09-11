@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   number_parser.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sturuvek <sturuvek@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/11 12:21:52 by sturuvek          #+#    #+#             */
+/*   Updated: 2026/09/11 12:21:54 by sturuvek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	check_duplicate(int value, stack *a)
+int	check_duplicate(int value, t_stack *a)
 {
 	t_list	*current;
 
@@ -14,7 +26,7 @@ int	check_duplicate(int value, stack *a)
 	return (0);
 }
 
-void	add_to_stack(int value, stack *a)
+void	add_to_stack(int value, t_stack *a)
 {
 	t_list	*new;
 	t_list	*current;
@@ -38,7 +50,7 @@ void	add_to_stack(int value, stack *a)
 	a->size++;
 }
 
-int	number_parsing(char **argv, stack *a, int index)
+int	number_parsing(char **argv, t_stack *a, int index)
 {
 	int	pos;
 	int	value;

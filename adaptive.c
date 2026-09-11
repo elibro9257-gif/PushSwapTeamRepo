@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sturuvek <sturuvek@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/11 12:22:44 by sturuvek          #+#    #+#             */
+/*   Updated: 2026/09/11 12:22:48 by sturuvek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-double	compute_disorder(stack *a)
+double	compute_disorder(t_stack *a)
 {
 	t_list	*current;
 	t_list	*compare;
@@ -27,7 +39,7 @@ double	compute_disorder(stack *a)
 	return ((double)mistakes / total_pairs);
 }
 
-void	adaptive(stack *a, stack *b, t_config *config, double disorder)
+void	adaptive(t_stack *a, t_stack *b, t_config *config, double disorder)
 {
 	if (disorder < 0.2)
 		simple_sort(a, b, NULL, config);

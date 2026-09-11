@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sturuvek <sturuvek@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/11 12:25:34 by sturuvek          #+#    #+#             */
+/*   Updated: 2026/09/11 12:25:35 by sturuvek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	error()
@@ -15,7 +27,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-void	print_stack(stack *s)
+void	print_stack(t_stack *s)
 {
 	t_list	*current;
 
@@ -32,8 +44,8 @@ void	print_stack(stack *s)
 int	main(int argc, char **argv)
 {
 	t_config	config;
-	stack		a;
-	stack		b;
+	t_stack		a;
+	t_stack		b;
 	int			index;
 	t_bench	bench;
 	double			disorder;

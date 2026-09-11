@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_parsing.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sturuvek <sturuvek@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/11 12:23:13 by sturuvek          #+#    #+#             */
+/*   Updated: 2026/09/11 12:23:16 by sturuvek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_option(char *arg)
@@ -15,7 +27,7 @@ int	is_option(char *arg)
 	return (0);
 }
 
-void	init_data(stack *a, stack *b, t_config *config)
+void	init_data(t_stack *a, t_stack *b, t_config *config)
 {
 	a->data = NULL;
 	a->size = 0;
@@ -25,7 +37,7 @@ void	init_data(stack *a, stack *b, t_config *config)
 	config->bench = 0;
 }
 
-int	parse_input(char **argv, stack *a, t_config *config)
+int	parse_input(char **argv, t_stack *a, t_config *config)
 {
 	int	index;
 

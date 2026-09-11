@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	rotate(stack *s)
+static void	rotate(t_stack *s)
 {
 	t_list	*top;
 	t_list	*last;
@@ -28,7 +28,7 @@ static void	rotate(stack *s)
 	top->next = NULL;
 }
 
-void	rotate_ra(stack *a, t_config *config)
+void	rotate_ra(t_stack *a, t_config *config)
 {
 	rotate(a);
 	if (config->bench)
@@ -37,7 +37,7 @@ void	rotate_ra(stack *a, t_config *config)
 		write(1, "ra\n", 3);
 }
 
-void	rotate_rb(stack *b, t_config *config)
+void	rotate_rb(t_stack *b, t_config *config)
 {
 	rotate(b);
 	if (config->bench)
@@ -46,7 +46,7 @@ void	rotate_rb(stack *b, t_config *config)
 		write(1, "rb\n", 3);
 }
 
-void	rotate_rr(stack *a, stack *b, t_config *config)
+void	rotate_rr(t_stack *a, t_stack *b, t_config *config)
 {
 	rotate(a);
 	rotate(b);

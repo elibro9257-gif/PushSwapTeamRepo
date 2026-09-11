@@ -46,7 +46,7 @@ int	get_position(t_list *stack, int target_content)
 /*
 ** Hilfsfunktion, um das kleinste Element an die Spitze von Stack A zu bringen
 */
-static void	bring_min_to_top(stack *stack_a, t_op **op_list, t_config *config)
+static void	bring_min_to_top(t_stack *stack_a, t_op **op_list, t_config *config)
 {
 	int	min_val;
 	int	pos;
@@ -71,7 +71,7 @@ static void	bring_min_to_top(stack *stack_a, t_op **op_list, t_config *config)
 	}
 }
 
-void	simple_sort(stack *stack_a, stack *stack_b, t_op **op_list,
+void	simple_sort(t_stack *stack_a, t_stack *stack_b, t_op **op_list,
 						t_config *config)
 {
 	while (stack_a->size > 3)

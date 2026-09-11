@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	rank_stack(stack *stack_a)
+void	rank_stack(t_stack *stack_a)
 {
 	t_list	*current;
 	t_list	*compare;
