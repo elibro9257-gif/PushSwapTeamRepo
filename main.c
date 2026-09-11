@@ -1,4 +1,4 @@
- #include "push_swap.h"
+#include "push_swap.h"
 
 void	error()
 {
@@ -51,6 +51,6 @@ int	main(int argc, char **argv)
 	else if (config.strategy == MEDIUM)
 		medium_sort(&a, &b, NULL);
 	print_stack(&a);
-	print_stack(&b);	
+	print_stack(&b);
 	return (0);
-} 
+}

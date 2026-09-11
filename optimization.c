@@ -62,7 +62,7 @@ void	combine_nodes(t_op *first, t_op *second, char *new_cmd)
 	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
-		free(second);
+	free(second);
 }
 
 // Die Hauptoptimierungs-Funktion

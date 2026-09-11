@@ -57,5 +57,3 @@ int	validate_input(int index, int argc)
 	}
 	return (1);
 }
-
-

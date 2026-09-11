@@ -52,7 +52,7 @@ static void	radix_sort(stack *a, stack *b)
 		i = 0;
 		while (i < count)
 		{
-			if (((a->data->rank >> bit) & 1) == 0) // head to data changed
+			if (((a->data->rank >> bit) & 1) == 0)
 			{
 				pb(a, b);
 			}
