@@ -28,7 +28,7 @@ void	rank_stack(stack *stack_a)
 				r++;
 			compare = compare->next;
 		}
-		current->rank = r; // Befüllt das einheitliche 'rank'-Feld
+		current->rank = r;
 		current = current->next;
 	}
 }
