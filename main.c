@@ -53,7 +53,11 @@ int	main(int argc, char **argv)
 		return (0);
 	init_program(&a, &b, &config, &bench);
 	if (!parse_validate(argv, argc, &a, &config))
+	{
+		free_stack(&a);
+		free_stack(&b);
 		return (0);
+	}
 	disorder = compute_disorder(&a);
 	if (disorder == 0.0)
 	{
@@ -64,5 +68,7 @@ int	main(int argc, char **argv)
 	run_stratergy(&a, &b, &config, disorder);
 	if (config.bench)
 		print_benchmark(a.bench, &config, disorder);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

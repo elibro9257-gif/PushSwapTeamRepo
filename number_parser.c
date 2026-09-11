@@ -26,14 +26,14 @@ int	check_duplicate(int value, t_stack *a)
 	return (0);
 }
 
-void	add_to_stack(int value, t_stack *a)
+int	add_to_stack(int value, t_stack *a)
 {
 	t_list	*new;
 	t_list	*current;
 
 	new = malloc(sizeof(t_list));
 	if (!new)
-		error();
+		return (0);
 	new->content = value;
 	new->rank = 0;
 	new->next = NULL;
@@ -41,13 +41,14 @@ void	add_to_stack(int value, t_stack *a)
 	{
 		a->data = new;
 		a->size++;
-		return ;
+		return (1);
 	}
 	current = a->data;
 	while (current->next)
 		current = current->next;
 	current->next = new;
 	a->size++;
+	return (1);
 }
 
 int	number_parsing(char **argv, t_stack *a, int index)
@@ -72,7 +73,8 @@ int	number_parsing(char **argv, t_stack *a, int index)
 				error();
 				return (0);
 			}
-			add_to_stack(value, a);
+			if (!add_to_stack(value, a))
+				return (0);
 		}
 		index++;
 	}

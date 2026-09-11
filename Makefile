@@ -34,7 +34,8 @@ SRCS        = main.c \
               adaptive.c \
               benchmark.c \
               main_utils.c \
-              optimization_utils.c
+              optimization_utils.c \
+              free.c
 
 # Automatische Erstellung der .o Dateinamen
 OBJS        = $(SRCS:.c=.o)

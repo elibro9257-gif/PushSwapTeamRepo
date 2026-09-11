@@ -93,7 +93,7 @@ void	init_data(t_stack *a, t_stack *b, t_config *config);
 int		parse_input(char **argv, t_stack *a, t_config *config);
 int		validate_input(int index, int argc);
 int		check_duplicate(int value, t_stack *a);
-void	add_to_stack(int value, t_stack *a);
+int	add_to_stack(int value, t_stack *a);
 int		number_parsing(char **argv, t_stack *a, int index);
 void	complex(t_stack *a, t_stack *b);
 int		check_integer(char *str, int *pos, int *error_flag);
@@ -122,4 +122,5 @@ void	init_program(t_stack *a, t_stack *b, t_config *config, t_bench *bench);
 void	run_stratergy(t_stack *a, t_stack *b,
 			t_config *config, double disorder);
 int		check_cancel_and_combine(t_op **head, t_op **curr, t_op *next);
+void	free_stack(t_stack *stack);
 #endif

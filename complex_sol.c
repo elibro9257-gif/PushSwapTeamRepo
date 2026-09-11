@@ -78,6 +78,11 @@ static void	radix_sort(t_stack *a, t_stack *b)
 
 void	complex(t_stack *a, t_stack *b)
 {
+	if (a->size <= 5)
+	{
+		simple_sort(a, b, NULL);
+		return ;
+	}
 	assign_ranks(a->data);
 	radix_sort(a, b);
 }
