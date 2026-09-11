@@ -28,21 +28,30 @@ static void	rotate(stack *s)
 	top->next = NULL;
 }
 
-void	rotate_ra(stack *a)
+void	rotate_ra(stack *a, t_config *config)
 {
 	rotate(a);
-	write(1, "ra\n", 3);
+	if (config->bench)
+		a->bench->ra++;
+	else
+		write(1, "ra\n", 3);
 }
 
-void	rotate_rb(stack *b)
+void	rotate_rb(stack *b, t_config *config)
 {
 	rotate(b);
-	write(1, "rb\n", 3);
+	if (config->bench)
+		b->bench->rb++;
+	else
+		write(1, "rb\n", 3);
 }
 
-void	rotate_rr(stack *a, stack *b)
+void	rotate_rr(stack *a, stack *b, t_config *config)
 {
 	rotate(a);
 	rotate(b);
-	write(1, "rr\n", 3);
+	if (config->bench)
+		a->bench->rr++;
+	else
+		write(1, "rr\n", 3);
 }

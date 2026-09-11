@@ -31,7 +31,8 @@ SRCS        = main.c \
               simple_sort.c \
               stratergy_parser.c \
               swap.c \
-              adaptive.c 
+              adaptive.c \
+              benchmark.c  
 
 # Automatische Erstellung der .o Dateinamen
 OBJS        = $(SRCS:.c=.o)

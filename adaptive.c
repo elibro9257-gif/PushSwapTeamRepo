@@ -27,15 +27,14 @@ static double	compute_disorder(stack *a)
 	return ((double)mistakes / total_pairs);
 }
 
-void	adaptive(stack *a, stack *b)
+void	adaptive(stack *a, stack *b, t_config *config, double disorder)
 {
-	double	disorder;
 
 	disorder = compute_disorder(a);
 	if (disorder < 0.2)
-		simple_sort(a, b, NULL);
+		simple_sort(a, b, NULL, config);
 	else if (disorder < 0.5)
-		medium_sort(a, b, NULL);
+		medium_sort(a, b, NULL, config);
 	else
-		complex(a, b);
+		complex(a, b, config);
 }

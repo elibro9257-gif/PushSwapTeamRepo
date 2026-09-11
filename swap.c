@@ -27,21 +27,30 @@ static void	swap(stack *s)
 	second->content = temp;
 }
 
-void	swap_sa(stack *a)
+void	swap_sa(stack *a, t_config *config)
 {
 	swap(a);
-	write(1, "sa\n", 3);
+	if (config->bench)
+		a->bench->sa++;
+	else
+		write(1, "sa\n", 3);
 }
 
-void	swap_sb(stack *b)
+void	swap_sb(stack *b, t_config *config)
 {
 	swap(b);
-	write(1, "sb\n", 3);
+	if (config->bench)
+		b->bench->sb++;
+	else
+		write(1, "sb\n", 3);
 }
 
-void	swap_ss(stack *a, stack *b)
+void	swap_ss(stack *a, stack *b, t_config *config)
 {
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 3);
+	if (config->bench)
+		a->bench->ss++;
+	else
+		write(1, "ss\n", 3);
 }

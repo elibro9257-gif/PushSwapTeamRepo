@@ -43,7 +43,7 @@ int	get_position(t_list *stack, int target_content)
 	return (pos);
 }
 
-void	simple_sort(stack *stack_a, stack *stack_b, t_op **op_list)
+void	simple_sort(stack *stack_a, stack *stack_b, t_op **op_list, t_config *config)
 {
 	int	min_val;
 	int	pos;
@@ -56,7 +56,7 @@ void	simple_sort(stack *stack_a, stack *stack_b, t_op **op_list)
 		{
 			while (stack_a->data->content != min_val)
 			{
-				rotate_ra(stack_a);
+				rotate_ra(stack_a, config);
 				add_op(op_list, "ra"); 
 			}
 		}
@@ -64,17 +64,17 @@ void	simple_sort(stack *stack_a, stack *stack_b, t_op **op_list)
 		{
 			while (stack_a->data->content != min_val)
 			{
-				rra(stack_a);
+				rra(stack_a, config);
 				add_op(op_list, "rra"); 
 			}
 		}
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, config);
 		add_op(op_list, "pb");
 	}
-	sort_three(stack_a, op_list);
+	sort_three(stack_a, op_list, config);
 	while (stack_b->size > 0)
 	{
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, config);
 		add_op(op_list, "pa");
 	}
 }

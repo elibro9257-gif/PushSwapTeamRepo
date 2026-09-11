@@ -14,14 +14,20 @@ void	push(stack *s1, stack *s2)
 	s1->size++;
 }
 
-void	pa(stack *a, stack *b)
+void	pa(stack *a, stack *b, t_config *config)
 {
 	push(a, b);
-	write(1, "pa\n", 3);
+	if (config->bench)
+		a->bench->pa++;
+	else
+		write(1, "pa\n", 3);
 }
 
-void	pb(stack *a, stack *b)
+void	pb(stack *a, stack *b, t_config *config)
 {
 	push(b, a);
-	write(1, "pb\n", 3);
+	if (config->bench)
+		b->bench->pb++;
+	else
+		write(1, "pb\n", 3);
 }
