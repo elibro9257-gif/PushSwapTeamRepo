@@ -35,21 +35,29 @@ int	main(int argc, char **argv)
 	stack		a;
 	stack		b;
 	int			index;
+	t_bench	bench;
+	double			disorder;
 
 	if (argc < 2)
 		return (0);
 	init_data(&a, &b, &config);
+	init_bench(&bench);
+	a.bench = &bench;
+	b.bench = &bench;
 	index = parse_input(argv, &a, &config);
 	if (!validate_input(index, argc))
 		return (0);
+	disorder = compute_disorder(&a);
 	if (config.strategy == COMPLEX)
-		complex(&a, &b);
+		complex(&a, &b, &config);
 	else if (config.strategy == SIMPLE)
-		simple_sort(&a, &b, NULL);
+		simple_sort(&a, &b, NULL, &config);
 	else if (config.strategy == ADAPTIVE)
-		adaptive(&a, &b);
+		adaptive(&a, &b, &config, disorder);
 	else if (config.strategy == MEDIUM)
-		medium_sort(&a, &b, NULL);
+		medium_sort(&a, &b, NULL, &config);
+	if(config.bench)
+		print_benchmark(a.bench, &config, disorder);
 	print_stack(&a);
 	print_stack(&b);
 	return (0);

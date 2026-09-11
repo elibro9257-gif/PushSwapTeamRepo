@@ -13,11 +13,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stddef.h> // fuer size_t
-#include <stdlib.h> // fuer malloc
-#include <stdio.h>  // MUSS NOCH RAUSGENOMMEN WERDEN
-#include <limits.h> // fuer INT_MAX und INT_MIN FEHLER
+# include <unistd.h>
+# include <stddef.h> // fuer size_t
+# include <stdlib.h> // fuer malloc
+# include <stdio.h>  // MUSS NOCH RAUSGENOMMEN WERDEN
+# include <limits.h> // fuer INT_MAX und INT_MIN FEHLER
 
 typedef enum	e_strategy
 {

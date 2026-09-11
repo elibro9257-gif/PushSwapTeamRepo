@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static double	compute_disorder(stack *a)
+double	compute_disorder(stack *a)
 {
 	t_list	*current;
 	t_list	*compare;
@@ -29,8 +29,6 @@ static double	compute_disorder(stack *a)
 
 void	adaptive(stack *a, stack *b, t_config *config, double disorder)
 {
-
-	disorder = compute_disorder(a);
 	if (disorder < 0.2)
 		simple_sort(a, b, NULL, config);
 	else if (disorder < 0.5)
