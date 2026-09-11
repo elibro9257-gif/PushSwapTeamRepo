@@ -111,6 +111,7 @@ double	compute_disorder(t_stack *a);
 //Sortieralgorithmen
 void	simple_sort(t_stack *stack_a, t_stack *stack_b,
 			t_op **op_list);
+void	sort_two(t_stack *a, t_op **op_list);
 void	sort_three(t_stack *a, t_op **op_list);
 void	medium_sort(t_stack *stack_a, t_stack *stack_b,
 			t_op **op_list);

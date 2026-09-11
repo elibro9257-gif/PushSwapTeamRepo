@@ -73,6 +73,8 @@ static void	bring_min_to_top(t_stack *stack_a, t_op **op_list)
 
 void	simple_sort(t_stack *stack_a, t_stack *stack_b, t_op **op_list)
 {
+	if (stack_a->size == 2)
+		sort_two(stack_a, op_list);
 	while (stack_a->size > 3)
 	{
 		bring_min_to_top(stack_a, op_list);

@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+void	sort_two(t_stack *a, t_op **op_list)
+{
+	rotate_ra(a);
+	add_op(op_list, "ra");
+}
+
 void	sort_three(t_stack *a, t_op **op_list)
 {
 	int	f;

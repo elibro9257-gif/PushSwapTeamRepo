@@ -55,6 +55,12 @@ int	main(int argc, char **argv)
 	if (!parse_validate(argv, argc, &a, &config))
 		return (0);
 	disorder = compute_disorder(&a);
+	if (disorder == 0.0)
+	{
+		if (config.bench)
+		print_benchmark(a.bench, &config, disorder);
+		return (0);
+	}
 	run_stratergy(&a, &b, &config, disorder);
 	if (config.bench)
 		print_benchmark(a.bench, &config, disorder);
