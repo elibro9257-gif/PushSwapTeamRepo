@@ -70,19 +70,19 @@ typedef struct s_op
 	struct s_op	*prev;
 }			t_op;
 
-void	swap_sa(t_stack *a, t_config *config);
-void	swap_sb(t_stack *b, t_config *config);
-void	swap_ss(t_stack *a, t_stack *b, t_config *config);
-void	rotate_ra(t_stack *a, t_config *config);
-void	rotate_rb(t_stack *b, t_config *config);
-void	rotate_rr(t_stack *a, t_stack *b, t_config *config);
+void	swap_sa(t_stack *a);
+void	swap_sb(t_stack *b);
+void	swap_ss(t_stack *a, t_stack *b);
+void	rotate_ra(t_stack *a);
+void	rotate_rb(t_stack *b);
+void	rotate_rr(t_stack *a, t_stack *b);
 void	push(t_stack *s1, t_stack *s2);
-void	pa(t_stack *a, t_stack *b, t_config *config);
-void	pb(t_stack *a, t_stack *b, t_config *config);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
 void	rr(t_stack *s);
-void	rra(t_stack *a, t_config *config);
-void	rrb(t_stack *b, t_config *config);
-void	rrr(t_stack *a, t_stack *b, t_config *config);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 int		add_op(t_op **data, char *cmd);
 void	optimize_operations(t_op **data);
@@ -95,14 +95,14 @@ int		validate_input(int index, int argc);
 int		check_duplicate(int value, t_stack *a);
 void	add_to_stack(int value, t_stack *a);
 int		number_parsing(char **argv, t_stack *a, int index);
-void	complex(t_stack *a, t_stack *b, t_config *config);
+void	complex(t_stack *a, t_stack *b);
 int		check_integer(char *str, int *pos, int *error_flag);
 int		set_error(int *error_flag);
 int		get_sign(char *str, int *pos);
 void	error(void);
 int		is_option(char *arg);
 int		ft_strcmp(const char *s1, const char *s2);
-void	adaptive(t_stack *a, t_stack *b, t_config *config, double disorder);
+void	adaptive(t_stack *a, t_stack *b, double disorder);
 void	init_bench(t_bench *bench);
 long	total_operations(t_bench *bench);
 void	print_benchmark(t_bench *bench, t_config *config,
@@ -110,9 +110,15 @@ void	print_benchmark(t_bench *bench, t_config *config,
 double	compute_disorder(t_stack *a);
 //Sortieralgorithmen
 void	simple_sort(t_stack *stack_a, t_stack *stack_b,
-			t_op **op_list, t_config *config);
-void	sort_three(t_stack *a, t_op **op_list, t_config *config);
+			t_op **op_list);
+void	sort_three(t_stack *a, t_op **op_list);
 void	medium_sort(t_stack *stack_a, t_stack *stack_b,
-			t_op **op_list, t_config *config);
+			t_op **op_list);
 void	rank_stack(t_stack *stack_a);
+int		parse_validate(char **argv, int argc,
+			t_stack *a, t_config *config);
+void	init_program(t_stack *a, t_stack *b, t_config *config, t_bench *bench);
+void	run_stratergy(t_stack *a, t_stack *b,
+			t_config *config, double disorder);
+int		check_cancel_and_combine(t_op **head, t_op **curr, t_op *next);
 #endif

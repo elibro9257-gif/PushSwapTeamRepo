@@ -46,7 +46,7 @@ int	get_position(t_list *stack, int target_content)
 /*
 ** Hilfsfunktion, um das kleinste Element an die Spitze von Stack A zu bringen
 */
-static void	bring_min_to_top(t_stack *stack_a, t_op **op_list, t_config *config)
+static void	bring_min_to_top(t_stack *stack_a, t_op **op_list)
 {
 	int	min_val;
 	int	pos;
@@ -57,7 +57,7 @@ static void	bring_min_to_top(t_stack *stack_a, t_op **op_list, t_config *config)
 	{
 		while (stack_a->data->content != min_val)
 		{
-			rotate_ra(stack_a, config);
+			rotate_ra(stack_a);
 			add_op(op_list, "ra");
 		}
 	}
@@ -65,25 +65,24 @@ static void	bring_min_to_top(t_stack *stack_a, t_op **op_list, t_config *config)
 	{
 		while (stack_a->data->content != min_val)
 		{
-			rra(stack_a, config);
+			rra(stack_a);
 			add_op(op_list, "rra");
 		}
 	}
 }
 
-void	simple_sort(t_stack *stack_a, t_stack *stack_b, t_op **op_list,
-						t_config *config)
+void	simple_sort(t_stack *stack_a, t_stack *stack_b, t_op **op_list)
 {
 	while (stack_a->size > 3)
 	{
-		bring_min_to_top(stack_a, op_list, config);
-		pb(stack_a, stack_b, config);
+		bring_min_to_top(stack_a, op_list);
+		pb(stack_a, stack_b);
 		add_op(op_list, "pb");
 	}
-	sort_three(stack_a, op_list, config);
+	sort_three(stack_a, op_list);
 	while (stack_b->size > 0)
 	{
-		pa(stack_a, stack_b, config);
+		pa(stack_a, stack_b);
 		add_op(op_list, "pa");
 	}
 }

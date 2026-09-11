@@ -39,12 +39,12 @@ double	compute_disorder(t_stack *a)
 	return ((double)mistakes / total_pairs);
 }
 
-void	adaptive(t_stack *a, t_stack *b, t_config *config, double disorder)
+void	adaptive(t_stack *a, t_stack *b, double disorder)
 {
 	if (disorder < 0.2)
-		simple_sort(a, b, NULL, config);
+		simple_sort(a, b, NULL);
 	else if (disorder < 0.5)
-		medium_sort(a, b, NULL, config);
+		medium_sort(a, b, NULL);
 	else
-		complex(a, b, config);
+		complex(a, b);
 }

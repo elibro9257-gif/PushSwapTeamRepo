@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_three(t_stack *a, t_op **op_list, t_config *config)
+void	sort_three(t_stack *a, t_op **op_list)
 {
 	int	f;
 	int	s;
@@ -24,14 +24,15 @@ void	sort_three(t_stack *a, t_op **op_list, t_config *config)
 	s = a->data->next->content;
 	t = a->data->next->next->content;
 	if (f > s && s < t && f < t)
-		(swap_sa(a, config), add_op(op_list, "sa"));
+		(swap_sa(a), add_op(op_list, "sa"));
 	else if (f > s && s > t && f > t)
-		(swap_sa(a, config), add_op(op_list, "sa"), rra(a, config), add_op(op_list, "rra"));
+		(swap_sa(a), add_op(op_list, "sa"),
+			rra(a), add_op(op_list, "rra"));
 	else if (f > s && s < t && f > t)
-		(rotate_ra(a, config), add_op(op_list, "ra"));
+		(rotate_ra(a), add_op(op_list, "ra"));
 	else if (f < s && s > t && f < t)
-		(swap_sa(a, config), add_op(op_list, "sa"),
-			rotate_ra(a, config), add_op(op_list, "ra"));
+		(swap_sa(a), add_op(op_list, "sa"),
+			rotate_ra(a), add_op(op_list, "ra"));
 	else if (f < s && s > t && f > t)
-		(rra(a, config), add_op(op_list, "rra"));
+		(rra(a), add_op(op_list, "rra"));
 }

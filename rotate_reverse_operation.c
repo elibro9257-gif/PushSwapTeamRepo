@@ -30,30 +30,24 @@ void	rr(t_stack *s)
 	s->data = temp;
 }
 
-void	rra(t_stack *a, t_config *config)
+void	rra(t_stack *a)
 {
 	rr(a);
-	if (config->bench)
-		a->bench->rra++;
-	else
-		write(1, "rra\n", 4);
+	a->bench->rra++;
+	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *b, t_config *config)
+void	rrb(t_stack *b)
 {
 	rr(b);
-	if (config->bench)
-		b->bench->rrb++;
-	else
-		write(1, "rrb\n", 4);
+	b->bench->rrb++;
+	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a, t_stack *b, t_config *config)
+void	rrr(t_stack *a, t_stack *b)
 {
 	rr(a);
 	rr(b);
-	if (config->bench)
-		a->bench->rrr++;
-	else
-		write(1, "rrr\n", 4);
+	a->bench->rrr++;
+	write(1, "rrr\n", 4);
 }

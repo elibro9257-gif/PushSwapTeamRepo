@@ -49,7 +49,7 @@ static int	get_max_bits(int size)
 	return (bits);
 }
 
-static void	radix_sort(t_stack *a, t_stack *b, t_config *config)
+static void	radix_sort(t_stack *a, t_stack *b)
 {
 	int	bit;
 	int	i;
@@ -65,19 +65,19 @@ static void	radix_sort(t_stack *a, t_stack *b, t_config *config)
 		while (i < count)
 		{
 			if (((a->data->rank >> bit) & 1) == 0)
-				pb(a, b, config);
+				pb(a, b);
 			else
-				rotate_ra(a, config);
+				rotate_ra(a);
 			i++;
 		}
 		while (b->size > 0)
-			pa(a, b, config);
+			pa(a, b);
 		bit++;
 	}
 }
 
-void	complex(t_stack *a, t_stack *b, t_config *config)
+void	complex(t_stack *a, t_stack *b)
 {
 	assign_ranks(a->data);
-	radix_sort(a, b, config);
+	radix_sort(a, b);
 }
