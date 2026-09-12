@@ -154,6 +154,8 @@ Verwende Code mit Vorsicht.
 |-----------|-------------------------------|----------------------|
 | `simple_sort` | O(n²) | Hardcoded sorting up to 3 nodes; structural min-extraction for 4-5 nodes. |
 | `medium_sort` | O(n√n) | Chunk-based partitioning using √n total blocks with automated post-processing optimization. |
+| `complex_sort` | O(n log n) | Bitwise Radix distribution using dynamic binary shifts and automated re-pooling |
+
 
 ### Performance Benchmarks
 To fulfill the project validation targets, the following maximum operation constraints are verified during testing:
