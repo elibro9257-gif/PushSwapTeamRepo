@@ -90,7 +90,7 @@ shuf -i 0-9999 -n 100 > args.txt
     make re
     ```
 
-### Makefile 
+### Makefile
 
 | Rule | Effect |
 |------|--------|
@@ -139,14 +139,15 @@ For mid-sized data sets (optimized specifically for 100 elements), the system ex
 ### 3. Complex Sort Framework (O(n log n))
 For massive data sets containing up to 500+ elements, the application scales by invoking an optimized bitwise Radix Sort adaptation (`complex_sol.c`).
 
-*   **Bitwise Binary Partitioning:** After receiving a normalized stack pre-sorted by `rank_stack`, the algorithm processes numbers using their binary representations. The engine loops through the significant bits of the maximum possible rank (from bit 0 up to $\log_2 N$). 
-*   **Radix Execution Loop:** For each bit position, the engine evaluates the full size of stack a. It looks at the top element's rank (`a->data->rank`) and applies a bitwise right-shift and mask (`(rank >> bit) & 1`). 
+*   **Bitwise Binary Partitioning:** After receiving a normalized stack pre-sorted by `rank_stack`, the algorithm processes numbers using their binary representations. The engine loops through the significant bits of the maximum possible rank (from bit 0 up to $\log_2 N$).
+*   **Radix Execution Loop:** For each bit position, the engine evaluates the full size of stack a. It looks at the top element's rank (`a->data->rank`) and applies a bitwise right-shift and mask (`(rank >> bit) & 1`).
     *   If the evaluated bit is `0`, the element is immediately pushed to stack b (`pb`).
     *   If the evaluated bit is `1`, the element is kept in stack a and rotated to the bottom using `rotate_ra`.
 Verwende Code mit Vorsicht.
 
-### Adapting
+### 4. Adaptive Framework
 
+The adaptive strategy automatically selects the most suitable sorting algorithm based on how disordered the input stack is. To calculate the disorder ratio, each element is compared with every element that comes after it in the stack. Whenever a value is greater than a later value, it is counted as a mistake. The total number of mistakes is then divided by the total number of possible pairs, producing a disorder value between `0.0` and `1.0`, where `0.0` represents an already sorted stack and `1.0` represents a completely reversed stack. Based on this ratio, the program selects the simple strategy when the disorder is below `0.2`, the medium strategy when it is below `0.5`, and the complex strategy for more disordered inputs. This allows the program to adapt its sorting approach according to the current state of the input.
 
 ### Theoretical Complexity Classes per Algorithm
 
@@ -173,7 +174,6 @@ As required by the group project guidelines, both learners have contributed mean
 
 ## Resources & AI Usage
 ### Project Documentation & References
-*   Donald Knuth: *The Art of Computer Programming, Volume 3: Sorting and Searching* (Algorithmic scaling and complexity analysis).
 *   42 Network Project Subject Guidelines (Disorder metric configurations and execution requirements).
 
 ### AI Tool Implementation Disclosure
