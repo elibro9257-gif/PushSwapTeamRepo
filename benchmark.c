@@ -35,7 +35,7 @@ long	total_operations(t_bench *bench)
 		+ bench->rra + bench->rrb + bench->rrr);
 }
 
-static char	*strategy_name(t_config *config)
+char	*strategy_name(t_config *config)
 {
 	if (config->strategy == SIMPLE)
 		return ("Simple");
@@ -46,7 +46,7 @@ static char	*strategy_name(t_config *config)
 	return ("Adaptive");
 }
 
-static char	*complexity_name(t_config *config, double disorder)
+char	*complexity_name(t_config *config, double disorder)
 {
 	if (config->strategy == SIMPLE)
 		return ("O(n²)");
@@ -67,18 +67,12 @@ void	print_benchmark(t_bench *bench, t_config *config,
 	long	total;
 
 	total = total_operations(bench);
-	fprintf(stderr, "[bench] disorder: %.2f%%\n",
-		disorder * 100);
-	fprintf(stderr, "[bench] strategy: %s / %s\n",
-		strategy_name(config),
-		complexity_name(config, disorder));
-	fprintf(stderr, "[bench] total_ops: %ld\n", total);
-	fprintf(stderr,
-		"[bench] sa: %ld sb: %ld ss: %ld pa: %ld pb: %ld\n",
-		bench->sa, bench->sb, bench->ss,
-		bench->pa, bench->pb);
-	fprintf(stderr,
-		"[bench] ra: %ld rb: %ld rr: %ld rra: %ld rrb: %ld rrr: %ld\n",
-		bench->ra, bench->rb, bench->rr,
-		bench->rra, bench->rrb, bench->rrr);
+	print_disorder(disorder);
+	print_strategy(config, disorder);
+	putstr_fd("[bench] total_ops: ", 2);
+	putlong_fd(total, 2);
+	write(2, "\n", 1);
+	print_basic_operations(bench);
+	print_rotate_operations(bench);
 }
+

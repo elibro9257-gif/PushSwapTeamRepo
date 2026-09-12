@@ -123,4 +123,14 @@ void	run_stratergy(t_stack *a, t_stack *b,
 			t_config *config, double disorder);
 int		check_cancel_and_combine(t_op **head, t_op **curr, t_op *next);
 void	free_stack(t_stack *stack);
+void	free_stacks(t_stack *stack_a, t_stack *stack_b);
+void	putstr_fd(char *str, int fd);
+void	putlong_fd(long n, int fd);
+long	total_operations(t_bench *bench);
+void	print_disorder(double disorder);
+void	print_strategy(t_config *config, double disorder);
+void	print_basic_operations(t_bench *bench);
+void	print_rotate_operations(t_bench *bench);
+char	*strategy_name(t_config *config);
+char	*complexity_name(t_config *config, double disorder);
 #endif

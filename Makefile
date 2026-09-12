@@ -35,7 +35,9 @@ SRCS        = main.c \
               benchmark.c \
               main_utils.c \
               optimization_utils.c \
-              free.c
+              free.c \
+              printing_benchmark.c \
+              utils.c
 
 # Automatische Erstellung der .o Dateinamen
 OBJS        = $(SRCS:.c=.o)

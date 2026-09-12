@@ -14,7 +14,7 @@
 
 void	error(void)
 {
-	fprintf(stderr, "Error\n");
+	write(2, "Error\n", 6);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)
@@ -25,20 +25,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	while (s1[i] && s1[i] == s2[i])
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-void	print_stack(t_stack *s)
-{
-	t_list	*current;
-
-	current = s->data;
-	printf("Stack (size: %d):\n", s->size);
-	while (current)
-	{
-		printf("content: %d | rank: %d\n",
-			current->content, current->rank);
-		current = current->next;
-	}
 }
 
 int	main(int argc, char **argv)
@@ -54,21 +40,20 @@ int	main(int argc, char **argv)
 	init_program(&a, &b, &config, &bench);
 	if (!parse_validate(argv, argc, &a, &config))
 	{
-		free_stack(&a);
-		free_stack(&b);
+		free_stacks(&a, &b);
 		return (0);
 	}
 	disorder = compute_disorder(&a);
 	if (disorder == 0.0)
 	{
 		if (config.bench)
-		print_benchmark(a.bench, &config, disorder);
+			print_benchmark(a.bench, &config, disorder);
+		free_stacks(&a, &b);
 		return (0);
 	}
 	run_stratergy(&a, &b, &config, disorder);
 	if (config.bench)
 		print_benchmark(a.bench, &config, disorder);
-	free_stack(&a);
-	free_stack(&b);
+	free_stacks(&a, &b);
 	return (0);
 }

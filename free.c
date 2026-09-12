@@ -17,3 +17,9 @@ void	free_stack(t_stack *stack)
 	stack->data = NULL;
 	stack->size = 0;
 }
+
+void	free_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	free_stack(stack_a);
+	free_stack(stack_b);
+}
