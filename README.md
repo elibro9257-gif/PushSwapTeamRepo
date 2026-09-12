@@ -136,10 +136,14 @@ For mid-sized data sets (optimized specifically for 100 elements), the system ex
     *   If the element does not fit either boundary, it is rotated to the back via `ra`.
 *   **Retrieval Loop (`bring_max_to_top`):** Once stack a is entirely exhausted, stack b is systematically emptied in descending order. The loop determines the absolute maximum rank remaining (`stack_b->size - 1`) and calls `get_max_index_pos`. It applies the closest rotation path (`rb` or `rrb`) to pivot the maximum element to the top before pulling it back to stack a using `pa`, resulting in a perfectly ordered stack a.
 
+### 3. Complex Sort Framework (O(n log n))
+For massive data sets containing up to 500+ elements, the application scales by invoking an optimized bitwise Radix Sort adaptation (`complex_sol.c`).
 
-
-
-### Complex
+*   **Bitwise Binary Partitioning:** After receiving a normalized stack pre-sorted by `rank_stack`, the algorithm processes numbers using their binary representations. The engine loops through the significant bits of the maximum possible rank (from bit 0 up to $\log_2 N$). 
+*   **Radix Execution Loop:** For each bit position, the engine evaluates the full size of stack a. It looks at the top element's rank (`a->data->rank`) and applies a bitwise right-shift and mask (`(rank >> bit) & 1`). 
+    *   If the evaluated bit is `0`, the element is immediately pushed to stack b (`pb`).
+    *   If the evaluated bit is `1`, the element is kept in stack a and rotated to the bottom using `rotate_ra`.
+Verwende Code mit Vorsicht.
 
 ### Adapting
 
@@ -162,8 +166,8 @@ To fulfill the project validation targets, the following maximum operation const
 ------------------------------
 ## Team Contributions
 As required by the group project guidelines, both learners have contributed meaningfully to the codebase and thoroughly understand the architecture:
-*   **Sturuvek:** Implemented the complete input parsing system, string-to-integer conversion routines, input duplication validation, stack data initializations, the O(n log n) complex sorting infrastructure (Radix Sort), and the real-time operational performance benchmarking engine (`--bench`).
-*   **ebroeker:** Engineered the zirkular-verkettete Stack-Infrastruktur, the O(n²) baseline simple sorting strategy, the O(n√n) chunk-based `medium_sort` framework, mathematical index ranking algorithms, and the double-pointer operation optimizer pipeline.
+*   **Sturuvek:** Implemented the complete input parsing system, string-to-integer conversion routines, input duplication validation, stack data initializations, the O(n log n) complex sorting infrastructure (Radix Sort), and the real-time operational performance benchmarking engine (`--bench`) and the mathematical index ranking algorithms.
+*   **ebroeker:** Engineered the circular-linked list Stack-structur, the O(n²) baseline simple sorting strategy, the O(n√n) chunk-based `medium_sort` framework.
 
 ## Resources & AI Usage
 ### Project Documentation & References
