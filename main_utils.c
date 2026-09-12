@@ -42,6 +42,6 @@ void	run_stratergy(t_stack *a, t_stack *b, t_config *config, double disorder)
 	if (config->op_list)
 	{
 		optimize_operations(&(config->op_list));
-		print_and_free_ops(config->op_list);
+		print_and_free_ops(&(config->op_list));
 	}
 }

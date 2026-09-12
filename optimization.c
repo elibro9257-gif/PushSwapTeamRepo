@@ -55,20 +55,20 @@ void	optimize_operations(t_op **head)
 	}
 }
 
-void	print_and_free_ops(t_op *head)
+void	print_and_free_ops(t_op **head)
 {
 	t_op	*tmp;
 	int		len;
 
 	while (head)
 	{
-		tmp = head->next;
+		tmp = (*head)->next;
 		len = 0;
-		while (head->cmd[len])
+		while ((*head)->cmd[len])
 			len++;
-		write(1, head->cmd, len);
+		write(1, (*head)->cmd, len);
 		write(1, "\n", 1);
 		free(head);
-		head = tmp;
+		*head = tmp;
 	}
 }

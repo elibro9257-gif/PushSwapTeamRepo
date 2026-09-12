@@ -86,7 +86,7 @@ void	rrr(t_stack *a, t_stack *b);
 
 int		add_op(t_op **data, char *cmd);
 void	optimize_operations(t_op **data);
-void	print_and_free_ops(t_op *data);
+void	print_and_free_ops(t_op **data);
 int		check_cancel_and_combine(t_op **head, t_op **curr, t_op *next);
 int		strategy_parsing(char **argv, t_config *config, int index);
 void	init_data(t_stack *a, t_stack *b, t_config *config);
