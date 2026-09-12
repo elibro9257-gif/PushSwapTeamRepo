@@ -32,14 +32,12 @@ void	rotate_ra(t_stack *a)
 {
 	rotate(a);
 	a->bench->ra++;
-	write(1, "ra\n", 3);
 }
 
 void	rotate_rb(t_stack *b)
 {
 	rotate(b);
 	b->bench->rb++;
-	write(1, "rb\n", 3);
 }
 
 void	rotate_rr(t_stack *a, t_stack *b)
@@ -47,5 +45,4 @@ void	rotate_rr(t_stack *a, t_stack *b)
 	rotate(a);
 	rotate(b);
 	a->bench->rr++;
-	write(1, "rr\n", 3);
 }

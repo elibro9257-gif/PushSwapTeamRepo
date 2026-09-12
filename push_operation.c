@@ -30,12 +30,10 @@ void	pa(t_stack *a, t_stack *b)
 {
 	push(a, b);
 	a->bench->pa++;
-	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *a, t_stack *b)
 {
 	push(b, a);
 	b->bench->pb++;
-	write(1, "pb\n", 3);
 }

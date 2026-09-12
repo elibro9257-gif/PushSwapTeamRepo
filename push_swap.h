@@ -102,7 +102,7 @@ int		get_sign(char *str, int *pos);
 void	error(void);
 int		is_option(char *arg);
 int		ft_strcmp(const char *s1, const char *s2);
-void	adaptive(t_stack *a, t_stack *b, double disorder);
+void	adaptive(t_stack *a, t_stack *b, t_config *config, double disorder);
 void	init_bench(t_bench *bench);
 long	total_operations(t_bench *bench);
 void	print_benchmark(t_bench *bench, t_config *config,

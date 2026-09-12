@@ -34,14 +34,12 @@ void	rra(t_stack *a)
 {
 	rr(a);
 	a->bench->rra++;
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b)
 {
 	rr(b);
 	b->bench->rrb++;
-	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b)
@@ -49,5 +47,4 @@ void	rrr(t_stack *a, t_stack *b)
 	rr(a);
 	rr(b);
 	a->bench->rrr++;
-	write(1, "rrr\n", 4);
 }

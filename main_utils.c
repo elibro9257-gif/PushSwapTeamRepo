@@ -36,7 +36,12 @@ void	run_stratergy(t_stack *a, t_stack *b, t_config *config, double disorder)
 	else if (config->strategy == SIMPLE)
 		simple_sort(a, b, &(config->op_list));
 	else if (config->strategy == ADAPTIVE)
-		adaptive(a, b, disorder);
+		adaptive(a, b, config, disorder);
 	else if (config->strategy == MEDIUM)
 		medium_sort(a, b, &(config->op_list));
+	if (config->op_list)
+	{
+		optimize_operations(&(config->op_list));
+		print_and_free_ops(config->op_list);
+	}
 }

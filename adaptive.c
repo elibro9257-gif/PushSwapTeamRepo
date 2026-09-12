@@ -39,20 +39,17 @@ double	compute_disorder(t_stack *a)
 	return ((double)mistakes / total_pairs);
 }
 
-void	adaptive(t_stack *a, t_stack *b, double disorder)
+void	adaptive(t_stack *a, t_stack *b, t_config *config, double disorder)
 {
-	t_op	*local_op_list;
-
-	local_op_list = NULL;
 	if (disorder < 0.2)
-		simple_sort(a, b, &local_op_list);
+		simple_sort(a, b, &(config->op_list));
 	else if (disorder < 0.5)
-		medium_sort(a, b, &local_op_list);
+		medium_sort(a, b, &(config->op_list));
 	else
 		complex(a, b);
-	if (local_op_list)
+	if (config->op_list)
 	{
-		optimize_operations(&local_op_list);
-		print_and_free_ops(local_op_list);
+		optimize_operations(&(config->op_list));
+		print_and_free_ops(config->op_list);
 	}
 }

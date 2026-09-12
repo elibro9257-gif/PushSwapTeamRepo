@@ -31,14 +31,12 @@ void	swap_sa(t_stack *a)
 {
 	swap(a);
 	a->bench->sa++;
-	write(1, "sa\n", 3);
 }
 
 void	swap_sb(t_stack *b)
 {
 	swap(b);
 	b->bench->sb++;
-	write(1, "sb\n", 3);
 }
 
 void	swap_ss(t_stack *a, t_stack *b)
@@ -46,5 +44,4 @@ void	swap_ss(t_stack *a, t_stack *b)
 	swap(a);
 	swap(b);
 	a->bench->ss++;
-	write(1, "ss\n", 3);
 }
