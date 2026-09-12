@@ -133,4 +133,7 @@ void	print_basic_operations(t_bench *bench);
 void	print_rotate_operations(t_bench *bench);
 char	*strategy_name(t_config *config);
 char	*complexity_name(t_config *config, double disorder);
+int		check_cancel_and_combine(t_op **head, t_op **curr, t_op *next);
+void	delete_nodes(t_op **head, t_op *first, t_op *second);
+void	combine_nodes(t_op *first, t_op *second, char *new_cmd);
 #endif

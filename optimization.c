@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-int	check_cancel_and_combine(t_op **head, t_op **curr, t_op *next);
-
 int	add_op(t_op **head, char *cmd)
 {
 	t_op	*new_node;

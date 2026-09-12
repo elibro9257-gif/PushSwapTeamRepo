@@ -51,31 +51,38 @@ int	add_to_stack(int value, t_stack *a)
 	return (1);
 }
 
-int	number_parsing(char **argv, t_stack *a, int index)
+static int	parse_helper(char *arg, t_stack *a)
 {
 	int	pos;
 	int	value;
 	int	error_flag;
 
+	pos = 0;
+	error_flag = 0;
+	while (arg[pos])
+	{
+		value = check_integer(arg, &pos, &error_flag);
+		if (error_flag)
+			return (0);
+		if (check_duplicate(value, a))
+		{
+			error();
+			return (0);
+		}
+		if (!add_to_stack(value, a))
+			return (0);
+	}
+	return (1);
+}
+
+int	number_parsing(char **argv, t_stack *a, int index)
+{
 	while (argv[index])
 	{
 		if (is_option(argv[index]))
 			return (index);
-		pos = 0;
-		error_flag = 0;
-		while (argv[index][pos])
-		{
-			value = check_integer(argv[index], &pos, &error_flag);
-			if (error_flag)
-				return (0);
-			if (check_duplicate(value, a))
-			{
-				error();
-				return (0);
-			}
-			if (!add_to_stack(value, a))
-				return (0);
-		}
+		if (!parse_helper(argv[index], a))
+			return (0);
 		index++;
 	}
 	return (index);

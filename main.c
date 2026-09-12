@@ -27,6 +27,12 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
+static void	config_check(t_config *config, t_stack a, double disorder)
+{
+	if (config->bench)
+		print_benchmark(a.bench, config, disorder);
+}
+
 int	main(int argc, char **argv)
 {
 	t_config	config;
@@ -38,7 +44,6 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	init_program(&a, &b, &config, &bench);
-	config.op_list = NULL;
 	if (!parse_validate(argv, argc, &a, &config))
 	{
 		free_stacks(&a, &b);
@@ -47,14 +52,12 @@ int	main(int argc, char **argv)
 	disorder = compute_disorder(&a);
 	if (disorder == 0.0)
 	{
-		if (config.bench)
-			print_benchmark(a.bench, &config, disorder);
+		config_check(&config, a, disorder);
 		free_stacks(&a, &b);
 		return (0);
 	}
 	run_stratergy(&a, &b, &config, disorder);
-	if (config.bench)
-		print_benchmark(a.bench, &config, disorder);
+	config_check(&config, a, disorder);
 	free_stacks(&a, &b);
 	return (0);
 }

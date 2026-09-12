@@ -35,6 +35,7 @@ void	init_data(t_stack *a, t_stack *b, t_config *config)
 	b->size = 0;
 	config->strategy = ADAPTIVE;
 	config->bench = 0;
+	config->op_list = NULL;
 }
 
 int	parse_input(char **argv, t_stack *a, t_config *config)

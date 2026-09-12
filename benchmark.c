@@ -75,4 +75,3 @@ void	print_benchmark(t_bench *bench, t_config *config,
 	print_basic_operations(bench);
 	print_rotate_operations(bench);
 }
-

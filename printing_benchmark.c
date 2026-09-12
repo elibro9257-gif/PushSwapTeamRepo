@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printing_benchmark.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sturuvek <sturuvek@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/12 13:27:06 by sturuvek          #+#    #+#             */
+/*   Updated: 2026/09/12 13:27:07 by sturuvek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	print_disorder(double disorder)
 {
-	long	value;
+	long	percent;
 	long	whole;
 	long	decimal;
 
-	value = (long)(disorder * 10000);
-	whole = value / 100;
-	decimal = value % 100;
+	percent = (long)(disorder * 10000.0);
+	whole = percent / 100;
+	decimal = percent % 100;
 	putstr_fd("[bench] disorder: ", 2);
 	putlong_fd(whole, 2);
 	write(2, ".", 1);
