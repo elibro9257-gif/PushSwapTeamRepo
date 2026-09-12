@@ -60,7 +60,7 @@ void	print_and_free_ops(t_op **head)
 	t_op	*tmp;
 	int		len;
 
-	while (head)
+	while (*head)
 	{
 		tmp = (*head)->next;
 		len = 0;
@@ -68,7 +68,7 @@ void	print_and_free_ops(t_op **head)
 			len++;
 		write(1, (*head)->cmd, len);
 		write(1, "\n", 1);
-		free(head);
+		free(*head);
 		*head = tmp;
 	}
 }
