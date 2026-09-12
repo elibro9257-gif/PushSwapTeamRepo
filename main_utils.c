@@ -32,7 +32,7 @@ void	init_program(t_stack *a, t_stack *b, t_config *config, t_bench *bench)
 void	run_stratergy(t_stack *a, t_stack *b, t_config *config, double disorder)
 {
 	if (config->strategy == COMPLEX)
-		complex(a, b);
+		complex(a, b, &(config->op_list));
 	else if (config->strategy == SIMPLE)
 		simple_sort(a, b, &(config->op_list));
 	else if (config->strategy == ADAPTIVE)

@@ -46,7 +46,7 @@ void	adaptive(t_stack *a, t_stack *b, t_config *config, double disorder)
 	else if (disorder < 0.5)
 		medium_sort(a, b, &(config->op_list));
 	else
-		complex(a, b);
+		complex(a, b, &(config->op_list));
 	if (config->op_list)
 	{
 		optimize_operations(&(config->op_list));

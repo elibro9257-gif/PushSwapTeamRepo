@@ -95,7 +95,7 @@ int		validate_input(int index, int argc);
 int		check_duplicate(int value, t_stack *a);
 int		add_to_stack(int value, t_stack *a);
 int		number_parsing(char **argv, t_stack *a, int index);
-void	complex(t_stack *a, t_stack *b);
+void	complex(t_stack *a, t_stack *b, t_op **op_list);
 int		check_integer(char *str, int *pos, int *error_flag);
 int		set_error(int *error_flag);
 int		get_sign(char *str, int *pos);
