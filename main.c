@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	init_program(&a, &b, &config, &bench);
+	config.op_list = NULL;
 	if (!parse_validate(argv, argc, &a, &config))
 	{
 		free_stacks(&a, &b);

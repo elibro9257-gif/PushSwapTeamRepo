@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stddef.h> // fuer size_t
 # include <stdlib.h> // fuer malloc
-# include <stdio.h>  // MUSS NOCH RAUSGENOMMEN WERDEN
 # include <limits.h> // fuer INT_MAX und INT_MIN FEHLER
 
 typedef enum e_strategy
@@ -42,10 +41,18 @@ typedef struct s_bench
 	long	rrr;
 }	t_bench;
 
+typedef struct s_op
+{
+	char		*cmd;
+	struct s_op	*next;
+	struct s_op	*prev;
+}			t_op;
+
 typedef struct s_config
 {
 	t_strategy	strategy;
 	int			bench;
+	t_op		*op_list;
 }	t_config;
 
 // das war was oben hinzugefuegt werden musste
@@ -62,13 +69,6 @@ typedef struct Stack
 	int		size;
 	t_bench	*bench;
 }	t_stack;
-
-typedef struct s_op
-{
-	char		*cmd;
-	struct s_op	*next;
-	struct s_op	*prev;
-}			t_op;
 
 void	swap_sa(t_stack *a);
 void	swap_sb(t_stack *b);
@@ -93,7 +93,7 @@ void	init_data(t_stack *a, t_stack *b, t_config *config);
 int		parse_input(char **argv, t_stack *a, t_config *config);
 int		validate_input(int index, int argc);
 int		check_duplicate(int value, t_stack *a);
-int	add_to_stack(int value, t_stack *a);
+int		add_to_stack(int value, t_stack *a);
 int		number_parsing(char **argv, t_stack *a, int index);
 void	complex(t_stack *a, t_stack *b);
 int		check_integer(char *str, int *pos, int *error_flag);

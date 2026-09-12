@@ -58,4 +58,3 @@ void	print_rotate_operations(t_bench *bench)
 	putlong_fd(bench->rrr, 2);
 	write(2, "\n", 1);
 }
-
